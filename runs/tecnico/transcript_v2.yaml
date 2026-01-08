@@ -1,0 +1,38 @@
+transcript_id: tr_tecnico_alexis_002_v2
+questionset_id: qs_alexis_zapico_tecnico_v1
+target: tecnico
+started_at: 2026-01-08T10:20:00Z
+ended_at: 2026-01-08T10:22:30Z
+
+entries:
+  - entry_id: e1_corr_v2
+    question_id: q_tec_01
+    question_text: "¿Mantendrías el diseño del sistema específicamente para usuarios españoles?"
+    answer_text: "Sí"
+    word_count: 1
+    time_sec: 5
+    forced_closure: false
+
+  - entry_id: e2_corr_v2
+    question_id: q_tec_02
+    question_text: "¿Eliminarías el sistema de reglas previo al entrenamiento del modelo?"
+    answer_text: "No"
+    word_count: 1
+    time_sec: 4
+    forced_closure: false
+
+  - entry_id: e3_corr_v2
+    question_id: q_tec_03
+    question_text: "¿Diseñarías el sistema para minimizar falsos negativos priorizando el recall?"
+    answer_text: "Sí, priorizaría el recall para minimizar falsos negativos."
+    word_count: 8
+    time_sec: 12
+    forced_closure: false
+
+  - entry_id: e6_corr_v2
+    question_id: q_tec_06
+    question_text: "¿Diferenciarías explícitamente entre heurísticas, features y modelo en el sistema?"
+    answer_text: "Sí"
+    word_count: 1
+    time_sec: 3
+    forced_closure: false

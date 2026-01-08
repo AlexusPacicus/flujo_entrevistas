@@ -1,0 +1,48 @@
+flags_id: fl_tecnico_alexis_001_v2
+generated_at: 2026-01-08T10:23:00Z
+
+summary:
+  overall_closure: ok
+  overall_authority: alta
+  overall_verbal_risk: bajo
+
+by_question:
+  - question_id: q_tec_01
+    target: tecnico
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: q_tec_02
+    target: tecnico
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: q_tec_03
+    target: tecnico
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: q_tec_06
+    target: tecnico
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false

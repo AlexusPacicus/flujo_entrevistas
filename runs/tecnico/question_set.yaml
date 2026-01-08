@@ -1,0 +1,60 @@
+questionset_id: "qs_alexis_zapico_tecnico_v1"
+version: "1.1"
+target: "tecnico"
+generated_from: "cp_alexis_zapico_v1"
+difficulty_profile: "medio"
+
+questions:
+  - question_id: "q_tec_01"
+    text: "¿Mantendrías el diseño del sistema específicamente para usuarios españoles?"
+    target: "tecnico"
+    type: "decision"
+    objective: "Validar el alcance geográfico del diseño del sistema."
+    closure_rule: "binario"
+    max_time_sec: 20
+    difficulty: "bajo"
+
+  - question_id: "q_tec_02"
+    text: "¿Eliminarías el sistema de reglas previo al entrenamiento del modelo?"
+    target: "tecnico"
+    type: "decision"
+    objective: "Evaluar la jerarquía entre reglas manuales y aprendizaje automático."
+    closure_rule: "binario"
+    max_time_sec: 25
+    difficulty: "medio"
+
+  - question_id: "q_tec_03"
+    text: "¿Diseñarías el sistema para minimizar falsos negativos priorizando el recall?"
+    target: "tecnico"
+    type: "tradeoff"
+    objective: "Verificar la prioridad de métricas de rendimiento en el proceso."
+    closure_rule: "1_frase"
+    max_time_sec: 30
+    difficulty: "alto"
+
+  - question_id: "q_tec_04"
+    text: "¿Son las señales del dominio, host e infraestructura las prioritarias en el modelo?"
+    target: "tecnico"
+    type: "tradeoff"
+    objective: "Validar la ponderación de las fuentes de datos en el modelo."
+    closure_rule: "1_frase"
+    max_time_sec: 25
+    difficulty: "medio"
+
+  - question_id: "q_tec_05"
+    text: "¿Representa la limitación de sectores un límite del dataset altamente curado?"
+    target: "tecnico"
+    type: "limite"
+    objective: "Exponer la frontera del dataset en cuanto a representación de sectores."
+    closure_rule: "binario"
+    max_time_sec: 20
+    difficulty: "alto"
+
+  - question_id: "q_tec_06"
+    text: "¿Diferenciarías explícitamente entre heurísticas, features y modelo en el sistema?"
+    target: "tecnico"
+    type: "decision"
+    objective: "Confirmar la separación de componentes en la arquitectura del sistema."
+    closure_rule: "binario"
+    max_time_sec: 20
+    difficulty: "bajo"
