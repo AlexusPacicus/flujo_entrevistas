@@ -1,0 +1,78 @@
+flags_id: fl_rrhh_v1_cp_alexis_zapico_001
+generated_at: 2026-01-09T18:10:00Z
+
+summary:
+  overall_closure: ok
+  overall_authority: alta
+  overall_verbal_risk: bajo
+
+by_question:
+  - question_id: rrhh_q1
+    target: rrhh
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: rrhh_q2
+    target: rrhh
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: rrhh_q3
+    target: rrhh
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: rrhh_q4
+    target: rrhh
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: rrhh_q5
+    target: rrhh
+    closure_ok: true
+    authority_level: alta
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: false
+    drift_detected: false
+
+  - question_id: rrhh_q6
+    target: rrhh
+    closure_ok: true
+    authority_level: baja
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: true
+    drift_detected: true
+
+  - question_id: rrhh_q7
+    target: rrhh
+    closure_ok: true
+    authority_level: baja
+    verbal_risk: bajo
+    over_explanation: false
+    contradiction_with_context: false
+    hedging_detected: true
+    drift_detected: true

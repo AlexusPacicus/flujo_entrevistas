@@ -1,0 +1,36 @@
+mandates_id: man_rrhh_v1_cp_alexis_zapico_001
+generated_at: 2026-01-09T18:15:00Z
+flags_id: fl_rrhh_v1_cp_alexis_zapico_001
+
+mandates:
+  - mandate_id: m_q6_auth
+    question_id: rrhh_q6
+    target: rrhh
+    source_flag: authority_level
+    action: Toma una decisión clara.
+    constraint: binario
+    priority: alta
+
+  - mandate_id: m_q6_drift
+    question_id: rrhh_q6
+    target: rrhh
+    source_flag: drift_detected
+    action: Responde al objeto literal de la pregunta.
+    constraint: binario
+    priority: media
+
+  - mandate_id: m_q7_auth
+    question_id: rrhh_q7
+    target: rrhh
+    source_flag: authority_level
+    action: Toma una decisión clara.
+    constraint: 1_frase
+    priority: alta
+
+  - mandate_id: m_q7_drift
+    question_id: rrhh_q7
+    target: rrhh
+    source_flag: drift_detected
+    action: Responde al objeto literal de la pregunta.
+    constraint: 1_frase
+    priority: media

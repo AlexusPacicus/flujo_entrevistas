@@ -1,0 +1,62 @@
+transcript_id: tr_rrhh_v1_cp_alexis_zapico_real_001
+questionset_id: qs_rrhh_v1_cp_alexis_zapico
+target: rrhh
+started_at: 2026-01-09T18:05:00Z
+ended_at: 2026-01-09T18:08:00Z
+
+entries:
+  - entry_id: e1
+    question_id: rrhh_q1
+    question_text: "Indica si asumes hoy que la responsabilidad de señalar de forma explícita los huecos relevantes de tu trayectoria en tu CV es tuya."
+    answer_text: "sí"
+    word_count: 1
+    time_sec: 4
+    forced_closure: false
+
+  - entry_id: e2
+    question_id: rrhh_q2
+    question_text: "En una frase, señala un momento de tu trayectoria profesional que hoy podría malinterpretarse si solo se leyera en un documento sin contexto adicional."
+    answer_text: "Mi transición desde el ámbito militar hacia el desarrollo en inteligencia artificial podría malinterpretarse como un salto improvisado si no se explica el proceso de formación y decisión detrás."
+    word_count: 27
+    time_sec: 15
+    forced_closure: false
+
+  - entry_id: e3
+    question_id: rrhh_q3
+    question_text: "En dos frases, describe qué aclararías primero cuando un reclutador te indica que tu CV no permite entender con precisión tu recorrido profesional."
+    answer_text: "Aclararía primero el motivo del cambio de etapa profesional y el hilo conductor entre ellas. Después explicaría cómo fui adquiriendo las competencias clave que justifican ese recorrido."
+    word_count: 27
+    time_sec: 20
+    forced_closure: false
+
+  - entry_id: e4
+    question_id: rrhh_q4
+    question_text: "Indica si hoy marcarías de forma explícita en un email qué partes de la información compartida no deben usarse como hecho formal en el proceso."
+    answer_text: "sí"
+    word_count: 1
+    time_sec: 5
+    forced_closure: false
+
+  - entry_id: e5
+    question_id: rrhh_q5
+    question_text: "En dos frases, describe qué prefieres sacrificar antes cuando dispones de muy poco tiempo para contar tu trayectoria profesional: detalle o contexto."
+    answer_text: "Prefiero sacrificar detalle antes que contexto, para que se entienda correctamente el sentido general de mi trayectoria. El detalle puedo ampliarlo después si es necesario."
+    word_count: 24
+    time_sec: 18
+    forced_closure: false
+
+  - entry_id: e6
+    question_id: rrhh_q6
+    question_text: "Indica si aceptarías que un sistema de evaluación no validado con datos reales tenga peso decisivo en una decisión sobre tu candidatura."
+    answer_text: "Creo que hay demasiado corrupto en este país"
+    word_count: 8
+    time_sec: 10
+    forced_closure: false
+
+  - entry_id: e7
+    question_id: rrhh_q7
+    question_text: "En una frase, formula cómo responderías cuando en entrevista te piden concretar partes de tu trayectoria que consideras mal representadas en los documentos disponibles."
+    answer_text: "bueno, pues... por ejemplo, respondería de forma buena"
+    word_count: 8
+    time_sec: 12
+    forced_closure: false

@@ -3,14 +3,43 @@ ORQUESTADOR — CONTROL DE FLUJO (NO AGENTE)
 OBJETIVO
 Controlar la ejecución de agentes sin interpretar contenido.
 
-ESTADOS
+# Flow v1 — Control de ejecución
+
 START
-EMIT_BASE
-VALIDATE_BASE
-NORMALIZE_BASE
-DERIVE
-ABORT
+
+CONTEXT_EMIT
+- prompt: contexto_emisor
+
+CONTEXT_VALIDATE
+- prompt: contexto_validador
+- if VALID → DERIVE_RRHH
+- if INVALID → CONTEXT_NORMALIZE
+
+CONTEXT_NORMALIZE
+- prompt: contexto_normalizador
+- then → CONTEXT_VALIDATE
+- max_cycles: 3
+- if still INVALID → ABORT
+
+DERIVE_RRHH
+- prompt: derivador_rrhh
+- requires: ContextPack_BASE = VALID
+
+DERIVE_TECNICO
+- prompt: derivador_tecnico
+- requires: ContextPack_BASE = VALID
+
+ANALYZE_FLAGS
+- prompt: flags
+
+APPLY_MANDATES
+- prompt: mandates
+
 END
+
+ABORT
+- reason: ContextPack_BASE non conformant
+
 
 REGLAS ABSOLUTAS
 

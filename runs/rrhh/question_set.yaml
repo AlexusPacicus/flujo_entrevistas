@@ -1,0 +1,69 @@
+questionset_id: qs_rrhh_v1_cp_alexis_zapico
+version: v1.0
+target: rrhh
+generated_from: cp_alexis_zapico_v1_rrhh
+difficulty_profile: medio
+
+questions:
+  - question_id: rrhh_q1
+    text: "Indica si asumes hoy que la responsabilidad de señalar de forma explícita los huecos relevantes de tu trayectoria en tu CV es tuya."
+    target: rrhh
+    type: decision
+    objective: "Exponer asunción de responsabilidad sobre huecos informativos en su propio CV."
+    closure_rule: binario
+    max_time_sec: 30
+    difficulty: medio
+
+  - question_id: rrhh_q2
+    text: "En una frase, señala un momento de tu trayectoria profesional que hoy podría malinterpretarse si solo se leyera en un documento sin contexto adicional."
+    target: rrhh
+    type: fallo
+    objective: "Exponer reconocimiento de un fallo previo de comunicación o ambigüedad en la trayectoria."
+    closure_rule: 1_frase
+    max_time_sec: 40
+    difficulty: medio
+
+  - question_id: rrhh_q3
+    text: "En dos frases, describe qué aclararías primero cuando un reclutador te indica que tu CV no permite entender con precisión tu recorrido profesional."
+    target: rrhh
+    type: decision
+    objective: "Exponer criterio de priorización ante huecos de información detectados por un tercero."
+    closure_rule: 2_frases
+    max_time_sec: 40
+    difficulty: medio
+
+  - question_id: rrhh_q4
+    text: "Indica si hoy marcarías de forma explícita en un email qué partes de la información compartida no deben usarse como hecho formal en el proceso."
+    target: rrhh
+    type: decision
+    objective: "Exponer cómo delimita el candidato qué información quiere que sea considerada oficial en el proceso."
+    closure_rule: binario
+    max_time_sec: 30
+    difficulty: medio
+
+  - question_id: rrhh_q5
+    text: "En dos frases, describe qué prefieres sacrificar antes cuando dispones de muy poco tiempo para contar tu trayectoria profesional: detalle o contexto."
+    target: rrhh
+    type: tradeoff
+    objective: "Exponer cómo gestiona el equilibrio entre precisión y contexto bajo presión de tiempo."
+    closure_rule: 2_frases
+    max_time_sec: 40
+    difficulty: alto
+
+  - question_id: rrhh_q6
+    text: "Indica si aceptarías que un sistema de evaluación no validado con datos reales tenga peso decisivo en una decisión sobre tu candidatura."
+    target: rrhh
+    type: limite
+    objective: "Exponer el límite personal respecto al uso de sistemas no validados en decisiones críticas sobre su perfil."
+    closure_rule: binario
+    max_time_sec: 30
+    difficulty: alto
+
+  - question_id: rrhh_q7
+    text: "En una frase, formula cómo responderías cuando en entrevista te piden concretar partes de tu trayectoria que consideras mal representadas en los documentos disponibles."
+    target: rrhh
+    type: limite
+    objective: "Exponer control verbal bajo presión cuando se le exige precisión sobre zonas ambiguas de su trayectoria."
+    closure_rule: 1_frase
+    max_time_sec: 40
+    difficulty: alto

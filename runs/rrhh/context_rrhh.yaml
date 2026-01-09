@@ -1,0 +1,34 @@
+ContextPack_RRHH:
+  context_id: "cp_alexis_zapico_v1_rrhh"
+  derived_from: "cp_alexis_zapico_v1"
+
+  facts_summary:
+    - fact_id: "fact_01"
+      text: "Candidato: Alexis Zapico."
+      source_ref: "src_cv"
+    - fact_id: "fact_02"
+      text: "Email de contacto: alexis.zapfer@gmail.com."
+      source_ref: "src_cv"
+    - fact_id: "fact_03"
+      text: "Teléfono de contacto: 654 74 75 55."
+      source_ref: "src_cv"
+
+  timeline: []
+
+  non_technical_decisions: []
+
+  personal_assumptions: []
+
+  risk_signals:
+    - signal_id: "risk_01"
+      type: "gap"
+      description: "Imposibilidad de extraer hechos detallados de trayectoria y timeline profesional del archivo CV debido a la codificación interna del PDF."
+      source_ref: "src_cv"
+    - signal_id: "risk_02"
+      type: "ambiguity"
+      description: "El email menciona 6 años de experiencia militar y trayectoria en Peugeot, pero estas fuentes están prohibidas para generar hechos factuales según la gobernanza."
+      source_ref: "src_email"
+    - signal_id: "risk_03"
+      type: "dependency"
+      description: "Falta de validación del sistema con datos reales de producción continua."
+      source_ref: "src_readme"

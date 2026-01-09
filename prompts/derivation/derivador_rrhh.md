@@ -21,6 +21,6 @@ DERIVACIÓN:
 SALIDA:
 Emitir exclusivamente ContextPack_RRHH en YAML.
 
-non_technical_decisions ← SOLO decisiones sin campo `scope`
-o con scope explícitamente marcado como `personal`
-(en caso contrario, lista vacía)
+non_technical_decisions ←
+  decisiones del BASE con scope = personal
+  (si no existen → [])

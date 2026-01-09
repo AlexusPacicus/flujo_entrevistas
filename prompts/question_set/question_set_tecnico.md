@@ -1,3 +1,4 @@
+# PROMPT_ID: GENERATE_QUESTIONSET_TECNICO
 file_path: prompts/question_set_tecnico.md
 old_string: |-
     - Cada pregunta debe mapear 1:1 a una decisión o límite EXPLÍCITO presente en ContextPack_TÉCNICO.
