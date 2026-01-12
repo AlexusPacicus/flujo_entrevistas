@@ -3,152 +3,100 @@
 El propósito de este flujo es servir como herramienta de apoyo para entrevistas, además de resultar la base para avanzar hacia un auditor de proyectos.
 
 ## INPUTS
-- CV
-- README(s)
-- Docs (0..n)
+- **CV**: Trayectoria y experiencia declarada.
+- **README(s)**: Contexto técnico de proyectos específicos.
+- **Docs (0..n)**: Documentación técnica adicional, especificaciones o correos de contexto.
+
+---
 
 ## REGLAS
-- RRHH primero
-- Ningún agente aconseja
-- Ningún agente decide
-- Corrección ≠ explicación
 
-## FLUJO GENERAL
-1. Contexto (describe)
-2. RRHH (pregunta)
-3. Técnico (pregunta)
-4. Análisis (clasifica)
-5. Corrección (manda)
+### Reglas Generales
+- **Prioridad**: RRHH precede a la entrevista técnica.
+- **No Consejo**: Ningún agente aconseja al candidato ni al entrevistador.
+- **No Decisión**: Los agentes no deciden aptitud; exponen datos.
+- **Corrección ≠ Explicación**: Los agentes de corrección mandan acciones, no explican teoría.
 
-## Flujo
+### Reglas Absolutas (Orquestación)
+- **Autoridad**: Solo el agente `contexto_emisor` puede crear o modificar `ContextPack_BASE`.
+- **Validación Obligatoria**: Todo `ContextPack_BASE` DEBE pasar por `contexto_validador`. No existe BASE "provisional".
+- **Bloqueo**: Si `ContextPack_BASE` no es `VALID`, está prohibido ejecutar cualquier agente derivado.
+- **Ciclo de Corrección**: Si el validador devuelve `INVALID`, se ejecuta el `normalizador` (máximo 3 ciclos) antes de abortar.
+- **Inmutabilidad**: Los agentes derivados (RRHH/Técnico) son de solo lectura; no pueden corregir ni completar la BASE.
 
-```
-┌───────────────────────────┐
-│           INPUTS          │
-│  CV · README(s) · Docs    │
-└──────────────┬────────────┘
-               │
-               v
-┌───────────────────────────┐
-│ (1) AGENTE DE CONTEXTO    │
-│       DESCRIPTIVO         │
-└──────────────┬────────────┘
-               │
-      ┌────────┴─────────┐
-      │                  │
-      v                  v
-┌───────────────┐   ┌────────────────┐
-│ ContextPack   │   │ ContextPack    │
-│     RRHH      │   │   TÉCNICO      │
-│ (derivado,RO) │   │ (derivado,RO)  │
-└──────┬────────┘   └───────┬────────┘
-       │                    │
-       v                    v
-┌───────────────┐   ┌────────────────┐
-│ (2R-G) AGENTE │   │ (2T-G) AGENTE  │
-│ PREGUNTAS     │   │ PREGUNTAS      │
-│ RRHH          │   │ TÉCNICAS       │
-└──────┬────────┘   └───────┬────────┘
-       │                    │
-       v                    v
-┌───────────────┐   ┌────────────────┐
-│ (3R) AGENTE   │   │ (3T) AGENTE    │
-│ RRHH          │   │ TÉCNICO        │
-│ ENTREVISTA    │   │ ENTREVISTA     │
-└──────┬────────┘   └───────┬────────┘
-       │                    │
-       └──────────┬─────────┘
-                  v
-        ┌────────────────────────┐
-        │ (4) AGENTE DE ANÁLISIS │
-        │      CLASIFICADOR      │
-        │ (contrasta con BASE)   │
-        └──────────┬─────────────┘
-                   v
-        ┌────────────────────────┐
-        │ (5) AGENTES DE ATAQUE  │
-        │       CORRECCIÓN       │
-        └────────────────────────┘
+---
+
+## FLUJO DE TRABAJO
+
+```mermaid
+graph TD
+    IN[INPUTS: CV, README, Docs] --> C_EMIT[1a. Contexto Emisor]
+    C_EMIT --> C_VAL{1b. Validador}
+    C_VAL -- INVALID --> C_NORM[1c. Normalizador]
+    C_NORM --> C_VAL
+    C_VAL -- VALID --> DERIVE[1d. Derivación]
+    
+    subgraph "Fase de Derivación"
+    DERIVE --> DER_RRHH[Derivador RRHH]
+    DERIVE --> DER_TEC[Derivador Técnico]
+    end
+
+    DER_RRHH --> Q_RRHH[2R. Question Set RRHH]
+    DER_TEC --> Q_TEC[2T. Question Set Técnico]
+
+    Q_RRHH --> I_RRHH[3R. Entrevista RRHH]
+    Q_TEC --> I_TEC[3T. Entrevista Técnica]
+
+    I_RRHH --> ANA[4. Análisis: Flags]
+    I_TEC --> ANA
+
+    ANA --> COR[5. Corrección: Mandatos]
 ```
 
+---
 
-## DETALLE DE AGENTES Y FLUJO
+## DETALLE DE AGENTES
 
-### (1) AGENTE DE CONTEXTO — DESCRIPTIVO
-- **Output:**
-  - ContextPack_BASE
-  - ContextPack_RRHH (derivado, solo lectura)
-  - ContextPack_TÉCNICO (derivado, solo lectura)
+### (1) Fase de Contexto (Orquestada)
+1. **Emisor**: Genera el `ContextPack_BASE` consolidando todos los inputs.
+2. **Validador/Normalizador**: Asegura que la BASE sea conforme al esquema y no tenga ambigüedades críticas.
+3. **Derivadores**: Generan vistas filtradas (`ContextPack_RRHH` y `ContextPack_TÉCNICO`) para los siguientes agentes.
 
-### (2R-G) AGENTE DE PREGUNTAS RRHH
-- **Input:** ContextPack_RRHH
-- **Output:** QuestionSet_RRHH (cerrado, versionado)
+### (2) Generadores de Preguntas (QuestionSet)
+- **RRHH / Técnico**: Generan un set cerrado y versionado de preguntas basado en su ContextPack derivado.
 
-### (2T-G) AGENTE DE PREGUNTAS TÉCNICAS
-- **Input:** ContextPack_TÉCNICO
-- **Output:** QuestionSet_Técnico (cerrado, versionado)
+### (3) Agentes de Entrevista (Transcript)
+- Ejecutan la entrevista siguiendo el `QuestionSet` y generan el `Transcript` (transcripción) de la sesión.
 
-### (3R) AGENTE RRHH — ENTREVISTA
-- **Input:** QuestionSet_RRHH
-- **Output:** Transcript_RRHH
+### (4) Agente de Análisis (Flags)
+- Detecta desviaciones, ambigüedad y falta de cierre comparando los `Transcripts` con el `ContextPack_BASE`.
+- **Output**: `Flags` (YAML).
 
-### (3T) AGENTE TÉCNICO — ENTREVISTA
-- **Input:** QuestionSet_Técnico
-- **Output:** Transcript_Técnico
+### (5) Agente de Corrección (Mandatos)
+- Emite instrucciones directas y concretas de corrección basadas en los `Flags` detectados.
+- **Output**: `Mandatos` (YAML).
 
-(4) AGENTE DE ANÁLISIS — CLASIFICADOR  
-Detecta desviaciones, ambigüedad y falta de cierre.
-- **Input:**
-  - Transcript_RRHH
-  - Transcript_TÉCNICO
-  - ContextPack_BASE (solo contraste)
-- **Output:** Flags
+---
 
-### (5) AGENTES DE ATAQUE — CORRECCIÓN
-- **Input:** Flags
-- **Output:** Mandatos
+## ESTRUCTURA DEL PROYECTO
+
+- **data/**: Documentos de entrada (CVs, correos, READMEs).
+- **orquestration/**: Definición de flujos y reglas de control (no agentes).
+- **prompts/**: Prompts del sistema organizados por fase (contexto, entrevista, análisis, etc.).
+- **runs/**: Resultados de ejecuciones (logs, YAMLs generados).
+- **schemas/**: Definiciones de contrato y esquemas de datos (Markdown/YAML).
 
 ---
 
 ## CONTEXTPACKS
 
 ### ContextPack_BASE
-- Hechos relevantes
-- Decisiones técnicas declaradas (citadas)
-- Supuestos implícitos
-- Fricciones potenciales (descriptivas)
-- Cronología profesional
-- Señales sensibles (riesgo)
+- Hechos relevantes, decisiones técnicas citadas, supuestos implícitos, cronología y señales de riesgo. Es la única fuente de verdad.
 
-> Ningún agente puede acceder al ContextPack_BASE directamente salvo el Agente de Contexto.
+### ContextPack_RRHH (Derivado)
+- **Incluye**: Coherencia, trayectoria, decisiones no técnicas, estabilidad.
+- **Excluye**: Detalle técnico profundo.
 
-### ContextPack_RRHH (derivado)
-**Incluye:**
-- Hechos relevantes (resumidos)
-- Cronología profesional
-- Decisiones no técnicas (cambios, salidas, motivaciones declaradas)
-- Supuestos personales implícitos
-- Señales de riesgo (vacíos, saltos, ambigüedades)
-
-**Excluye:**
-- Detalle técnico profundo
-- Métricas finas
-- Trade-offs técnicos
-
-**Objetivo:**
-- Exponer coherencia, control verbal, riesgo reputacional, estabilidad
-
-### ContextPack_TÉCNICO (derivado)
-**Incluye:**
-- Hechos técnicos relevantes
-- Decisiones técnicas declaradas (citadas)
-- Supuestos técnicos implícitos
-- Fricciones técnicas (trade-offs, límites, deuda)
-
-**Excluye:**
-- Narrativa personal
-- Motivación
-- Historia emocional
-
-**Objetivo:**
-- Exponer criterio, capacidad de decisión, profundidad, control conceptual
+### ContextPack_TÉCNICO (Derivado)
+- **Incluye**: Criterio técnico, trade-offs, profundidad conceptual, decisiones de diseño.
+- **Excluye**: Narrativa personal o emocional.
