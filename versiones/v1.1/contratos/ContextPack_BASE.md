@@ -3,22 +3,19 @@ scope: base_context
 status: canonical
 flow_reference: flow_v1.1 (FROZEN)
 
-
-context_id: string              # obligatorio
-contract_version: "1.1"         # obligatorio, valor fijo
-created_at: string              # ISO-8601
+context_id: string
+contract_version: "1.1"
+created_at: string
 
 sources:
-  cv: string                    # obligatorio
-  readmes: []                   # cero o más strings (ruta o id)
-  docs: []                      # cero o más strings
-  emails: []                    # cero o más strings
+  cv: string
+  readmes: []
+  docs: []
+  emails: []
 
-facts: []                       # lista de strings literales
-
-technical_decisions: []         # solo decisiones explícitas en README(s)
-
-risk_signals: []                # solo señales explícitas en DOC/EMAIL
+facts: []
+technical_decisions: []
+risk_signals: []
 
 contexto_validador — reglas finales v1.1
 Autoridad:
