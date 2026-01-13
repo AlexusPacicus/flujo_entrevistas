@@ -1,24 +1,23 @@
 graph TD
-    IN[Inputs<br/>(CV · README · Docs)]
-        --> CE[contexto_emisor<br/>(SK function)]
+    IN[Inputs] --> CE[contexto_emisor]
 
     CE --> CVA{contexto_validador}
 
-    CVA -- INVALID --> CN[contexto_normalizador<br/>(SK function)]
+    CVA -- INVALID --> CN[contexto_normalizador]
     CN --> CVA
 
-    CVA -- VALID --> DRR[derivador_rrhh<br/>(SK function)]
-    CVA -- VALID --> DRT[derivador_tecnico<br/>(SK function)]
+    CVA -- VALID --> DRR[derivador_rrhh]
+    CVA -- VALID --> DRT[derivador_tecnico]
 
-    DRR --> QRR[question_set_rrhh<br/>(SK function)]
-    DRT --> QRT[question_set_tecnico<br/>(SK function)]
+    DRR --> QRR[question_set_rrhh]
+    DRT --> QRT[question_set_tecnico]
 
-    QRR --> IRR[interview_rrhh<br/>(SK function)]
-    QRT --> IRT[interview_tecnico<br/>(SK function)]
+    QRR --> IRR[entrevista_rrhh]
+    QRT --> IRT[entrevista_tecnico]
 
-    IRR --> AF[analyze_flags<br/>(SK function)]
+    IRR --> AF[analyze_flags]
     IRT --> AF
 
-    AF --> AM[apply_mandates<br/>(SK function)]
+    AF --> AM[apply_mandates]
 
-    CVA -. after 3 INVALID .-> ABORT[ABORT]
+    CVA -.-> ABORT[ABORT]
