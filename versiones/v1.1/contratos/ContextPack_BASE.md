@@ -1,3 +1,8 @@
+## ContextPack_BASE v1.1 — Contrato Canónico
+
+### Schema
+
+```yaml
 contract_id: ContextPack_BASE
 scope: base_context
 status: canonical
@@ -16,6 +21,7 @@ sources:
 facts: []
 technical_decisions: []
 risk_signals: []
+```
 
 contexto_validador — reglas finales v1.1
 Autoridad:
