@@ -3,7 +3,7 @@ Contrato_Entrevista_RRHH v1.1
 Identidad
 
 - contract_id: Contrato_Entrevista_RRHH
-- scope: interview_rrhh
+- scope: intervista_rrhh
 - flow_reference: flow_v1.1 (FROZEN)
 
 Rol
