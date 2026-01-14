@@ -106,7 +106,7 @@ Si cambia el diagrama o el orden, se debe subir la versión.
 ### Archivos
 
 - flow: flow_v1.1.md
-- prompts: mismo nombre que función, ej: contexto_emisor.skprompt.txt
+- prompts: mismo nombre que función, ej: contexto_emisor.md
 
 **Regla SK:**  
 El nombre de la función ES el skill.  

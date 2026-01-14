@@ -26,5 +26,11 @@ SALIDA:
 - Sin texto fuera del YAML.
 - Secciones sin datos → []
 
+REQUISITOS CONTRACTUALES OBLIGATORIOS:
+- La salida DEBE incluir todas las claves obligatorias definidas en ContextPack_BASE v1.1.
+- El campo `sources` DEBE reflejar las fuentes de entrada disponibles, usando exactamente las subclaves del contrato.
+- El campo `contract_version` DEBE emitirse exactamente como `"1.1"`.
+- La regla “Ante duda, OMITIR” NO aplica a las claves obligatorias del contrato.
+
 PRIORIDAD:
 - En caso de conflicto entre este prompt y el contrato v1.1, prevalece SIEMPRE el contrato v1.1.
