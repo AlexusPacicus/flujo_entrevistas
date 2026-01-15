@@ -59,3 +59,6 @@ Gobernanza:
 
 Regla dura:
 - Si el agente falla, permanece en silencio.
+
+Excepción:
+- Se permiten campos constantes definidos explícitamente por el contrato específico, siempre que no se deriven ni transformen campos del input.

@@ -9,17 +9,19 @@ Identidad
 
 Rol
 
-Analizar una transcripción de entrevista para detectar flags formales, limitándose estrictamente a los tipos permitidos y basándose únicamente en hechos verificables presentes en el transcript.
+Analizar un conjunto de transcripciones sin inferencia para detectar flags formales, limitándose estrictamente a los tipos permitidos y basándose únicamente en hechos verificables presentes en el transcript.
 
 Input
 
-- Transcript_*
+- Transcripts (colección)
 
 Operaciones permitidas
 
 - Analizar exclusivamente el transcript recibido
 - Emitir flags solo de los tipos permitidos
 
+Regla dura:
+- cada Flag debe referenciar source_transcript_id.
 
 Output
 
