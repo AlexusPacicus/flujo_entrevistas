@@ -108,10 +108,6 @@ Si cambia el diagrama o el orden, se debe subir la versión.
 - flow: flow_v1.1.md
 - prompts: mismo nombre que función, ej: contexto_emisor.md
 
-**Regla SK:**  
-El nombre de la función ES el skill.  
-No se permiten alias ni traducciones.
-
 ## Estado y Versionado
 
 - STATUS: FROZEN
