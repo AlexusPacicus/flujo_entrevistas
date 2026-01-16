@@ -1,5 +1,3 @@
-## contexto_validador — Contrato v1.1
-
 ### Rol
 Determinar la **validez formal** de un `ContextPack_BASE v1.1`.
 
